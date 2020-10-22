@@ -22,9 +22,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'rx!$@x621i8=k8kk66zk9fp@n8rm42fmfkcw6d09n##0d994v+'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*', '.like2learn.online']
 
 # Application definition
 
@@ -133,3 +133,7 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, "static"), ]
 # specify media root for user uploaded files,
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+
+# 静态文件收集目录
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
