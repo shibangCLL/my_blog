@@ -1,0 +1,37 @@
+{% extends "blog/base.html" %}
+{% block title %}分类{% endblock title %}
+{% block keywords %}Python学习，Google SEO ,Baidu SEO{% endblock keywords %}
+{% block description %}Chenglulu个人博客，学习知识，分享知识{% endblock description %}
+{% block content %}
+    <div class="wrapper">
+        <main>
+            <h2 class="place">您现在的位置是：<a href="{% url 'blog:index' %}">网站首页</a>&gt; <a href="#">分类</a></h2>
+
+            {% for cate in cate_list %}
+                <div class="fengm">
+                    <h3><span><a href="{% url 'blog:category' cate.slug %}"
+                                 target="_blank">更多+</a></span>{{ cate.name }}</h3>
+                    <div class="fpicbox">
+                        <ul>
+                            {% for ar in cate.article_set.all|slice:'0:3' %}
+                                <li class="fpic"><a href="{{ ar.get_absolute_url }}" target="_blank"><img
+                                        src="{{ ar.image.url }}"><i>{{ ar.title }}</i></a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <ul class="fmnews">
+                        <ul>
+                            {% for ar in cate.article_set.all|slice:'3:' %}
+                                <li><span>{{ ar.create_date }}</span> <a href="{{ ar.get_absolute_url }}">{{ ar.title }}</a></li>
+                            {% endfor %}
+                        </ul>
+
+                    </ul>
+                </div>
+            {% endfor %}
+
+        </main>
+        {% include 'blog/sidebar.html' %}
+    </div>
+
+{% endblock content %}

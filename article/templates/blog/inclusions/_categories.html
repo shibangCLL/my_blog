@@ -1,0 +1,11 @@
+<div class="tjlm">
+    <h2 class="hometitle">文章分类</h2>
+    <ul>
+        {% for category in category_list %}
+            <li>
+                <a href="{% url 'blog:category' category.slug %}">{{ category.name }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+

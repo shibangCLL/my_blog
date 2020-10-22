@@ -1,0 +1,78 @@
+{% extends "my_blog2/base.html" %}
+{% load static %}
+{% load blog_extras %}
+{% block title %}
+    {{ article.title }}
+{% endblock title %}
+
+{% block content %}
+    <div class="wrapper">
+        <main>
+            <h2 class="place">您现在的位置是：<a href="{% url 'my_blog:article_list' %}">网站首页&gt;</a> <a href="/">{{ article.title }}</a></h2>
+            <div class="infosbox">
+                <div class="newsview">
+                    <h3 class="news_title">{{ article.title }}</h3>
+                    <div class="bloginfo">
+                        <ul>
+                            <li class="author">{{ article.author }}</li>
+                            <li class="lmname">{{ article.category }}</li>
+                            <li class="timer">{{ article.create_date }}</li>
+                            <li class="view">
+                                {{ article.views }}人已阅读
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="tags">
+                        {% for tag in article.tags.all %}
+                             <a href="#" target="_blank">{{ tag.name }}</a>
+                        {% endfor %}
+                    </div>
+                    <div class="news_about"><strong>简介</strong>{{ article.summary }}...
+                    </div>
+                    <div class="news_con">
+                        {{ article.body|safe }}
+                    </div>
+                </div>
+                <div class="share">
+                    <p class="diggit"><a href="#">很赞哦！</a>(<b id="diggnum">19</b>)
+                    </p>
+                </div>
+{#                <div class="nextinfo">#}
+{#                    <p>上一篇：<a href="/blogs/876.html">个人和杂志Wordpress响应式清新博客主题Carrie#}
+{#                    </a></p>#}
+{#                    <p>下一篇：<a href="/blogs/">返回列表</a></p>#}
+{#                </div>#}
+{#                <div class="otherlink">#}
+{#                    <h2>相关文章</h2>#}
+{#                    <ul>#}
+{#                        <li><a href="#" title="响应式Wordpress杂志主题Air Style">响应式Wordpress杂志主题Air Style</a></li>#}
+{#                        <li><a href="#" title="个人/旅游/摄影/生活方式/作家/时尚博客主题Bloggo">个人/旅游/摄影/生活方式/作家/时尚博客主题Bloggo</a></li>#}
+{#                        <li><a href="#" title="RealBlog-响应式WordPress博客主题">响应式WordPress博客主题RealBlog</a></li>#}
+{#                        <li><a href="#" title="html5时尚个人博客模板-技术门户型">现代优雅干净的WordPress主题Wink</a></li>#}
+{#                        <li><a href="#" title="现代优雅干净的WordPress主题Wink">html5个人博客模板主题《心蓝时间轴》</a></li>#}
+{#                        <li><a href="#" title="古典个人博客模板《江南墨卷》">古典个人博客模板《江南墨卷》</a></li>#}
+{#                        <li><a href="#" title="古典风格-个人博客模板">古典风格-个人博客模板</a></li>#}
+{#                        <li><a href="#" title="Anonis-响应式Wordpress博客主题">Anonis-响应式Wordpress博客主题</a></li>#}
+{#                        <li><a href="#" title="响应式博客Wordpress主题Bonex">响应式博客Wordpress主题Bonex</a></li>#}
+{#                        <li><a href="#" title="Kass-多博客/杂志Wordpress主题">Wordpress多博客/杂志主题Kass</a></li>#}
+{#                    </ul>#}
+{#                </div>#}
+{#                <div class="news_pl">#}
+{#                    <h2>文章评论</h2>#}
+{#                    <div class="gbko">#}
+{#                        <div id="SOHUCS" sid="15"></div>#}
+{#                        <script charset="utf-8" type="text/javascript"#}
+{#                                src="https://changyan.sohu.com/upload/changyan.js' %}"></script>#}
+{#                        <script type="text/javascript">#}
+{#                            window.changyan.api.config({#}
+{#                                appid: 'cytamwv5E',#}
+{#                                conf: 'prod_9ded3f796a9a7ff9ba9fc72f58944d14'#}
+{#                            });#}
+{#                        </script>#}
+{#                    </div>#}
+{#                </div>#}
+            </div>
+        </main>
+        {% include 'my_blog2/sidebar.html' %}
+    </div>
+{% endblock content %}

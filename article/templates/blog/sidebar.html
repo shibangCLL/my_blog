@@ -1,0 +1,77 @@
+{% load static %}
+{% load blog_extras %}
+<aside class="sidebar">
+    <div class="fenlei">
+        <ul class="flnav">
+            <li class="flselect"><a href="#" title="最新文章" class="pall"></a></li>
+            <li><a href="#" title="站长推荐" class="pgood"></a></li>
+            <li><a href="#" title="点击排行" class="pbro"></a></li>
+            <li><a href="#" title="头条关注" class="pfav"></a></li>
+        </ul>
+    </div>
+    <div class="newstw">
+        {% show_recent_posts %}
+        {% show_author_recommend %}
+        {% show_hot_article %}
+
+
+        <ul class="sidenews">
+            <h2>主题收藏</h2>
+            <p>正在开发</p>
+            {#                    <li><i><img src="images/12.jpg"></i>#}
+            {#                        <p><a href="/">wordpress个人博客主题No.7极简模板分享</a></p>#}
+            {#                        <span>2018-05-13</span></li>#}
+            {#                    <li><i><img src="images/11.jpg"></i>#}
+            {#                        <p><a href="/">WordPress自适应淘宝客主题MiTao4.5</a></p>#}
+            {#                        <span>2018-05-13</span></li>#}
+            {#                    <li><i><img src="images/10.jpg"></i>#}
+            {#                        <p><a href="/">个人博客，属于我的小世界！</a></p>#}
+            {#                        <span>2018-05-13</span></li>#}
+            {#                    <li><i><img src="images/9.jpg"></i>#}
+            {#                        <p><a href="/">Helen响应式wordpress博客主题</a></p>#}
+            {#                        <span>2018-05-13</span></li>#}
+            {#                    <li><i><img src="images/8.jpg"></i>#}
+            {#                        <p><a href="/">wordpress仿微博个人博客主题tongleer</a></p>#}
+            {#                        <span>2018-05-13</span></li>#}
+        </ul>
+    </div>
+{#    <div class="ad"><img src="{{ author.img_url }}"></div>#}
+{#    <div class="about">#}
+{#        <h2 class="hometitle">关于我</h2>#}
+{#        <ul>#}
+{#            <div class="avatar"><img src="{{ author.img_url }}" alt=""></div>#}
+{#            <p class="abname">{{ author.name }}</p>#}
+{#            <p class="abtext">无折腾,不生活。一个爱折腾，爱分享的90后。 </p>#}
+{#            <li><a class="xlwb" href="http://weibo.com/lai88520" target="_blank"></a></li>#}
+{#            <li><a class="txqq" href="http://wpa.qq.com/msgrd?v=3&uin=869241891&site=qq&menu=yes"#}
+{#                   target="_blank"></a></li>#}
+{#            <li><a class="rss" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=869241891@qq.com"#}
+{#                   target="_blank"></a></li>#}
+{#            <li class="wxpic"><a class="wx" href=""></a><img src="{{ author.img_url }}"></li>#}
+{#        </ul>#}
+{#    </div>#}
+    {% show_categories %}
+    {% show_archives %}
+    {% show_tags %}
+{#                <div class="tpjx">#}
+{#                    <h2 class="hometitle">图片主题</h2>#}
+{#                    <ul>#}
+{#                        <li><a href="#"><i><img src="images/1.jpg"></i><span>个人杂志博客WordPress主题Melina</span></a></li>#}
+{#                        <li><a href="#"><i><img src="images/2.jpg"></i><span>个人杂志博客WordPress主题Melina</span></a></li>#}
+{#                        <li><a href="#"><i><img src="images/3.jpg"></i><span>个人杂志博客WordPress主题Melina</span></a></li>#}
+{#                        <li><a href="#"><i><img src="images/4.jpg"></i><span>个人杂志博客WordPress主题Melina</span></a></li>#}
+{#                        <li><a href="#"><i><img src="images/5.jpg"></i><span>个人杂志博客WordPress主题Melina</span></a></li>#}
+{#                        <li><a href="#"><i><img src="images/6.jpg"></i><span>个人杂志博客WordPress主题Melina</span></a></li>#}
+{#                    </ul>#}
+{#                </div>#}
+{#    <div class="links">#}
+{#        <h2 class="hometitle">友情链接</h2>#}
+{#        <ul>#}
+{#            <li><a href="http://www.lmlblog.com">maolai博客</a></li>#}
+{#            <li><a href="http://www.lmlblog.com/category/moban">wordpress主题</a></li>#}
+{#            <li><a href="http://www.lmlblog.com/blog/1/">个人博客模板</a></li>#}
+{#            <li><a href="#">个人博客</a></li>#}
+{#        </ul>#}
+{#    </div>#}
+{#    <div class="ad"><img src="{{ author.img_url }}"></div>#}
+</aside>

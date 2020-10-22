@@ -1,0 +1,11 @@
+<ul class="sidenews">
+    <h2>最新文章</h2>
+    {% for article in recent_post_list %}
+        <li><i><img src="{{ article.image.url }}"></i>
+            <p><a href="{% url 'blog:article_detail' article.slug %}">{{ article.title }}</a></p>
+            <span>{{ article.create_date }}</span>
+        </li>
+    {% empty %}
+        暂无文章！
+    {% endfor %}
+</ul>

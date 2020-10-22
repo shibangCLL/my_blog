@@ -1,0 +1,62 @@
+{% extends "my_blog2/base.html" %}
+{% load blog_extras %}
+{% block title %}
+    时间轴
+{% endblock title %}
+
+{% block content %}
+    <div class="wrapper">
+        <main>
+            <h2 class="place">您现在的位置是：网站首页&gt; <a href="/">时光轴</a></h2>
+            <div class="timebox">
+                <ul>
+                    {% for article in articles %}
+                        <li><i class="blogpic"><a href="#"><img src="{{ article.image.url }}" alt=""> </a></i>
+                            <dl>
+                                <dt><a href="{% url 'my_blog:article_detail' article.id %}"
+                                       target="_blank">{{ article.title }}</a></dt>
+                                <dd><span class="bloginfo">{{ article.summary }}...</span>
+                                    <p class="timeinfo"><span class="lanmu"><a
+                                            href="http://www.lmlblog.com/category/moban"
+                                            target="_blank">{{ article.category }}</a></span><span
+                                            class="date">{{ article.create_date }}</span></p>
+                                    <a class="read" href="{% url 'my_blog:article_detail' article.id %}">阅读更多</a></dd>
+                            </dl>
+                        </li>
+                        <li><span>{{ article.create_date }}</span><i><a href="{% url 'my_blog:article_detail' article.id %}" target="_blank">{{ article.title }}</a></i></li>
+                    {% endfor %}
+                    <li><span>2018-06-17</span><i><a href="/" target="_blank">JustNews WordPress博客/自媒体/资讯主题</a></i></li>
+                    <li><span>2018-04-27</span><i><a href="/" target="_blank">Satellite7 v2.4 WordPress扁平化风格主题</a></i>
+                    </li>
+                    <li><span>2018-06-18</span><i><a href="/" target="_blank">Vitality 中文原创WordPress主题</a></i></li>
+                    <li><span>2018-04-27</span><i><a href="/" target="_blank">ThemeForest销量第一的wordpress主题</a></i></li>
+                    <li><span>2018-06-18</span><i><a href="/" target="_blank">瀑布流式wordpress图片主题-Brick + Mason</a></i>
+                    </li>
+                    <li><span>2018-06-17</span><i><a href="/" target="_blank">个人博客用帝国cms 自定义页面 灵动标签调用网站所有信息</a></i></li>
+                    <li><span>2018-04-27</span><i><a href="/" target="_blank">BeTheme v16.3 多功能响应式wordpress主题</a></i>
+                    </li>
+                    <li><span>2018-06-18</span><i><a href="/" target="_blank">Third 原创WordPress企业主题</a></i></li>
+                    <li><span>2018-04-27</span><i><a href="/" target="_blank">Zappy Themes全套wordpress主题打包下载</a></i></li>
+                    <li><span>2018-06-18</span><i><a href="/" target="_blank">wordpress视频主题-VideoPlus</a></i></li>
+                    <li><span>2018-04-27</span><i><a href="/" target="_blank">Slider Revolution 响应式幻灯滑块wordpress插件版</a></i>
+                    </li>
+                    <li><span>2018-06-18</span><i><a href="/" target="_blank">帝国cms使用灵动标签实现当前栏目高亮的方法</a></i></li>
+                    <li><span>2018-04-27</span><i><a href="/" target="_blank">帝国cms新闻系统增加图片集，并且列表模板调用所有小图实现方法</a></i>
+                    </li>
+                    <li><span>2018-06-18</span><i><a href="/" target="_blank">Sage WordPress商城主题</a></i></li>
+                    <li><span>2018-04-27</span><i><a href="/" target="_blank">Module 模块化多功能WordPress企业主题</a></i></li>
+                    <li><span>2018-06-18</span><i><a href="/" target="_blank">Jaguar WordPress博客主题</a></i></li>
+                    <li><span>2018-04-27</span><i><a href="/" target="_blank">html5个人博客模板simple</a></i></li>
+                    <li><span>2018-06-18</span><i><a href="/" target="_blank">html5古典个人博客模板winter</a></i></li>
+                    <li><span>2018-04-27</span><i><a href="/" target="_blank">MobX-MIP WordPress百度MIP手机主题</a></i></li>
+                    <li><span>2018-06-18</span><i><a href="/" target="_blank">ShopIsle 免费WordPress商城主题</a></i></li>
+                </ul>
+            </div>
+            <div class="pagelist"><a title="Total record">&nbsp;<b>6</b> </a>&nbsp;&nbsp;&nbsp;<b>1</b>&nbsp;<a
+                    href="">2</a>&nbsp;<a href="">3</a>&nbsp;<a href="">4</a>&nbsp;<a href="">5</a>&nbsp;<a
+                    href="">6</a>&nbsp;<a
+                    href="">下一页</a>&nbsp;<a href="">尾页</a></div>
+        </main>
+        {% include 'my_blog2/sidebar.html' %}
+    </div>
+{% endblock content %}

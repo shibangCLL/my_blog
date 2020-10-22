@@ -1,0 +1,53 @@
+{% extends "blog/base.html" %}
+{% block title %}Chenglulu个人博客{% endblock title %}
+{% block keywords %}Python学习，Google SEO ,Baidu SEO{% endblock keywords %}
+{% block description %}Chenglulu个人博客，学习知识，分享知识{% endblock description %}
+{% block content %}
+    <div class="wrapper">
+        <main>
+
+            <div class="banner">
+                <div id="banner" class="fader">
+                    {% for carousel in carousels %}
+                        <li class="slide"><a href="#"
+                                             title="{{ carousel.title }}"><img
+                                src="{{ carousel.image.url }}"><span
+                                class="imginfo">{{ carousel.title }}</span></a>
+                        </li>
+                    {% endfor %}
+                    <div class="fader_controls">
+                        <div class="page prev" data-target="prev">&lsaquo;</div>
+                        <div class="page next" data-target="next">&rsaquo;</div>
+                        <ul class="pager_list">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bloglist">
+                <ul>
+                    {% for article in articles %}
+                        <li><i class="blogpic"><a href="{% url 'blog:article_detail' article.slug %}"><img
+                                src="{{ article.image.url }}" alt=""> </a></i>
+                            <dl>
+                                <dt><a href="{% url 'blog:article_detail' article.slug %}"
+                                       target="_blank">{{ article.title }}</a></dt>
+                                <dd><span class="bloginfo">{{ article.summary }}...</span>
+                                    <p class="timeinfo"><span class="lanmu"><a
+                                            href="#"
+                                            target="_blank">{{ article.category }}</a></span><span
+                                            class="date">{{ article.create_date }}</span></p>
+                                    <a class="read" href="{% url 'blog:article_detail' article.slug %}">阅读更多</a></dd>
+                            </dl>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+{#            <div class="pagelist"><a title="Total record">&nbsp;<b>6</b> </a>&nbsp;&nbsp;&nbsp;<b>1</b>&nbsp;<a href="">2</a>&nbsp;<a#}
+{#                    href="">3</a>&nbsp;<a href="">4</a>&nbsp;<a href="">5</a>&nbsp;<a href="">6</a>&nbsp;<a#}
+{#                    href="">下一页</a>&nbsp;<a href="">尾页</a></div>#}
+        </main>
+        {% include 'blog/sidebar.html' %}
+    </div>
+{% endblock content %}

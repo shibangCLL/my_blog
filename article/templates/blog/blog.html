@@ -1,0 +1,34 @@
+asasdasd
+
+{% extends "my_blog2/base.html" %}
+{% load blog_extras %}
+{% block title %}
+    首页
+{% endblock title %}
+
+{% block content %}
+    <div class="wrapper">
+        <main>
+            <h2 class="place">您现在的位置是：网站首页&gt; <a href="/">博客主题</a></h2>
+            <div class="bloglist">
+                <ul>
+                    {% for article in post_list %}
+                        <li><i class="blogpic"><a href="#"><img src="{{ article.image.url }}" alt=""> </a></i>
+                            <dl>
+                                <dt><a href="{% url 'my_blog:article_detail' article.id %}"
+                                       target="_blank">{{ article.title }}</a></dt>
+                                <dd><span class="bloginfo">{{ article.summary }}...</span>
+                                    <p class="timeinfo"><span class="lanmu"><a
+                                            href="http://www.lmlblog.com/category/moban"
+                                            target="_blank">{{ article.category }}</a></span><span
+                                            class="date">{{ article.create_date }}</span></p>
+                                    <a class="read" href="{% url 'my_blog:article_detail' article.id %}">阅读更多</a></dd>
+                            </dl>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </main>
+        {% include 'my_blog2/sidebar.html' %}
+    </div>
+{% endblock content %}

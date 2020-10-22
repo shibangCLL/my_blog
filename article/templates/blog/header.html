@@ -1,0 +1,48 @@
+{% load static %}
+{% load blog_extras %}
+<header id="header">
+    <div class="navbar">
+        <div class="topbox">
+            <p class="welcome">如果重新开始，我会做什么?</p>
+            <div class="searchbox">
+                <div id="search_bar" class="search_bar">
+                    <form id="searchform" action="{% url 'blog:search' %}" method="get" name="searchform">
+                        <input class="input" placeholder="想搜点什么呢.." type="text" name="keyboard" id="keyboard">
+                        <p class="search_ico"><span></span></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="header-navigation">
+        <nav>
+{#            <div class="logo"><a href="{% url 'my_blog:article_list' %}">Chenglulu个人博客</a></div>#}
+{#            <h2 id="mnavh"><span class="navicon"></span></h2>#}
+{#            <ul id="starlist">#}
+{#                <li><a href="{% url 'my_blog:article_list' %}">网站首页</a></li>#}
+{#                <li><a href="#">关于我</a></li>#}
+{#                <li><a href="{% url 'my_blog:time_line' %}">时间轴</a></li>#}
+{#                <li><a href="#">教程</a></li>#}
+{#                <li class="menu"><a href="#">分类</a>#}
+{#                    <ul class="sub">#}
+{#                    {% show_categories_banner %}#}
+{##}
+{#                    </ul>#}
+{#                </li>#}
+{#            </ul>#}
+            <div class="logo"><a href="{% url 'blog:index' %}">Chenglulu个人博客</a></div>
+            <h2 id="mnavh"><span class="navicon"></span></h2>
+            <ul id="starlist">
+                <li><a href="{% url 'blog:index' %}">网站首页</a></li>
+{#                <li><a href="#">关于我</a></li>#}
+                <li><a href="{% url 'blog:time_line' %}">时间轴</a></li>
+                <li><a href="{% url 'blog:courses_list' %}">教程</a></li>
+                <li class="menu"><a href="{% url 'blog:categories_list' %}">分类</a>
+                    <ul class="sub">
+                    {% show_categories_banner %}
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
